@@ -39,7 +39,7 @@ class Solution1 {
     	int[] sol = new int[2];
     	Map<Integer, Integer> valPosMap = new HashMap<>(); //map < int value, array position>
     	
-    	//first iteration: check first item by linear search rest of array and meanwhile stored them the hash map
+    	//first iteration: check first item by linear search rest of array and meanwhile store them in the hash map
 		for (currPos = 1; currPos < nums.length; currPos++) {
 			if (nums[0] + nums[currPos] == target) {
 				sol[0] = 0;
