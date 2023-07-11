@@ -36,14 +36,15 @@ public class Prob4 {
 	
 	private static void test(int[] testArr1, int[] testArr2) {
 		double m;
-		Solution4 sol = new Solution4();
-
+		//Solution4 sol = new Solution4();
+		
+		Solution4_EXP sol = new Solution4_EXP();
 
 		System.err.println("mark: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16, 17, 18, 19, 20]");		
 		System.err.println("arr1: " + Arrays.toString(testArr1));
 		System.err.println("arr2: " + Arrays.toString(testArr2));
 		try {
-			Thread.sleep(11);
+			Thread.sleep(0);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -507,4 +508,65 @@ class Solution4_OLD {
     		}//fi	
     	}//fi
     }//end ceilInxOfTarget
-}
+}//end class
+
+class Solution4_EXP {
+	
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    	int nums1Length, nums2Length;
+    	if (nums1 == null) {
+    		nums1Length = 0;
+    	} else {
+    		nums1Length = nums1.length;
+    	}//fi
+    	if (nums2 == null) {
+    		nums2Length = 0;
+    	} else {
+    		nums2Length = nums2.length;
+    	}//fi
+    	
+    	int totalLength = nums1Length + nums2Length;
+    	int stopInx = (totalLength-1)/2;
+    	boolean isEven = (totalLength%2 == 0);
+    	int inx1 = 0,inx2 = 0;
+    	int currNum = 0, nextNum = 0;
+    	
+    	while (inx1 + inx2 <= stopInx) {
+    		if (inx1 >= nums1Length) { //nums1 used up
+    			currNum = nums2[inx2];
+    			inx2++;
+    			continue;
+    		} else if (inx2 >= nums2Length) {  //nums2 used up
+    			currNum = nums1[inx1];
+    			inx1++;
+    			continue;    		
+    		}//fi
+    		
+    		if (nums1[inx1] > nums2[inx2]) {
+    			currNum = nums2[inx2];
+    			inx2++;
+    		} else {
+    			currNum = nums1[inx1];
+    			inx1++;
+    		}//fi
+    	}//end while
+    	if (!isEven) {
+    		return (double)currNum;
+    	}//fi
+    	
+    	
+		if (inx1 >= nums1Length) { //nums1 used up
+			nextNum = nums2[inx2];
+		} else if (inx2 >= nums2Length) {  //nums2 used up
+			nextNum = nums1[inx1];  		
+		} else {
+			if (nums1[inx1] > nums2[inx2]) {
+				nextNum = nums2[inx2];
+			} else {
+				nextNum = nums1[inx1];
+			}//fi    
+		}//fi */
+    	
+        return (double)(currNum + nextNum)/2;
+    }//end method
+}//end class
