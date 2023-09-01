@@ -10,135 +10,138 @@ public class Prob10 {
 
 		Solution10 sol = new Solution10();
 		String s, p;
-		String c;
 		
-		
+	
 		
 		s = "aa"; p = "a";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		
+		
 		s = "aa"; p = "a*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 	
 		s = "ab"; p = ".*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		s = "aa"; p = "."; 
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		s = "a"; p = "."; 
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		s = "bcda"; p = "...."; 
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		s = "bcda"; p = "b..a"; 		
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		s = "bcda"; p = "b...a"; 
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		s = "bcdabbf"; p = "b..f"; 
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		s = "abcd"; p = ".*cd";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		
 		s = "abcd"; p = ".*cc";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");	
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));	
+		 
 	
 		s = "abcd"; p = "abcde*f*g*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		
 		s = ""; p = "d*f*g*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");		
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));		
+		 
 		s = "abcdefg"; p = "abd*cdg*efg";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		s ="aab"; p ="c*a*b";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");		
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));		
+		 
+	
 		
 		s =	"aaa"; p ="ab*ac*a";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+
+		
 		s = "abb"; p = "b*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);		
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 		
 		s = "aa"; p =	".c*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);	
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 	
 		s = "ab"; p =	"ac*d*e*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);		
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 		
 		s = "a"; p = ".*a*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);		
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 		
 		s = "a"; p = "d*a*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
-		s = "012345678901234"; p = "0 1 2345 6 7 8 9 ";
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
+
 		s = "abbabaaaaaaacaa"; p = "a*.*b.a.*c*b*a*c*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 
 		
 		s = "abbabaaaaaaacaa"; p = "a*.*b.a.*c*b*a*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 
 		
 
-		s = "0123456789012345678"; p = "0 12345 6 7 8 9 0";
 		s = "abcaaaaaaabaabcabac"; p = ".*ab.a.*a*a*.*b*b*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		
 		s = "bcbabcaacacbcabac"; p = "a*c*a*b*.*aa*c*a*a*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		
 		s = "bcbabcaacacbcabac"; p = "b*c*b*.a.*a*.*.*b*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		
 		
-		s = "01234567890"; p = "012 34 5 6";	
+
 		s = "mississippi"; p = "mis*is*p*.";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
-		System.out.println("s=01234567890 p=012 34 5 6");
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
+
 
 		
-		s = "012345678"; p = "0 12 3 4";	
+	
 		s = "ssissippi"; p = "s*is*p*.";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
-		System.out.println("s=012345678 p=0 12 3 4");		
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
+
 		
 		s = "bbbba"; p = ".*a*a";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");	
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));	
+		 
 		
 	
 		s = "aaaaaaaaaaaaaaaaaaab"; p =	"a*a*a*a*a*a*a*a*a*a*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 
 		
 		s = "ab"; p =	".*..";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
-		//*/
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));
+		 	
 		
 		
-		s = "aa"; p = "a*";
-		c = (s.matches(p) == sol.isMatch(s,p)) ? "" : ("s=" + s + " p=" + p + " should be: " + s.matches(p) + " ans: " + sol.isMatch(s,p) + "\n");
-		System.out.print(c);
-		System.out.println("s=01 p=0");				
+		s = "abb"; p = "b*";
+		System.out.println("s=" + s + " p=" + p);
+		System.out.println("ans: " + sol.isMatch(s,p) + " should be: " + s.matches(p));	
+	
+			//*/
+		
+
 	}//end method
 	
 	
@@ -151,6 +154,291 @@ public class Prob10 {
 }
 
 class Solution10 {
+	
+	private boolean[][] isDeadEnd;
+	
+	class Pattern {
+		/*
+		 * 0 - exact char match
+		 * non-zero - various number of matches, including zero
+		 * 
+		 */
+		private int patternType;
+		private char character;
+		
+		public boolean isStrict() {
+			return patternType == 0;
+		}//end method
+				
+		public boolean isMatchChar(char c) {
+			if (character == c || character == '.') {
+				return true;
+			} else {
+				return false;
+			}//fi
+		}//end method
+		
+		public Pattern (int patternType, char character) {
+			this.patternType = patternType;
+			this.character = character;
+		}//end constructor				
+	}//end class
+
+	
+	/**
+	 * This method parses pattern string and build array of pattern objects
+	 * precondition: it is assumed that pattern is valid
+	 * @param p Pattern String
+	 * @return Array of pattern object
+	 */
+	public Pattern[] buildPatternArr(String p) {
+		Pattern[] patternArr = new Pattern[p.length()];   	    	
+    	int currPatternArrInx = 0;
+    	for (int pStrInx = 0; pStrInx < p.length(); pStrInx++) {
+    		if (p.charAt(pStrInx) == '*') {
+    			patternArr[currPatternArrInx-1].patternType=1;
+    		} else {
+    			patternArr[currPatternArrInx] = new Pattern(0,p.charAt(pStrInx));
+    			currPatternArrInx++;
+    		}//fi    	
+    	}//rof
+    	return patternArr;
+	}//end method
+	
+
+    public boolean isMatch(String s, String p) {
+    	
+    	//special case, pattern length = 0;
+    	if (p.length() == 0) {
+    		return s.length() == 0;	
+    	}//fi  
+    	
+    	//step 1: build pattern array
+		Pattern[] patternArr = buildPatternArr(p);
+    	   	
+		//step 2: match recursively 	
+		isDeadEnd = new boolean[s.length()+1][patternArr.length+1];
+    	return match(s, patternArr, 0, 0);
+    }//end method
+    
+
+    /**
+     * Recursively matches string and given pattern
+     * @param str string to be matched 
+     * @param patArr Pattern array
+     * @param strInx current index of string array
+     * @param patInx current index of pattern array
+     * @return true if string and pattern match
+     */
+    private boolean match(String str, Pattern[] patArr, int strInx, int patInx) {
+    	//System.out.println("entered Match, " + strInx + " : " + patInx);
+    	if (isDeadEnd[strInx][patInx]) {
+    		return false;
+    	}//fi
+    	//base case 1: strInx has surpassed end of string, check rest of pat
+    	if (strInx > str.length()-1) {
+			for (int tmpPInx = patInx; tmpPInx < patArr.length && patArr[tmpPInx] != null; tmpPInx++) {
+				if (patArr[tmpPInx].isStrict()) {
+					isDeadEnd[strInx][patInx] = true;
+					return false;
+				}//fi
+			}//rof
+			//System.out.println("gone here base 2, " + strInx + " : " + patInx);
+			return true;
+    	}//fi
+    	
+    	//base case 2: patInx has surpassed end of pat or curr pat is null 
+    	if (patInx > patArr.length-1 || patArr[patInx] == null) {	
+    		isDeadEnd[strInx][patInx] = true;
+			return false;
+    	}//fi
+    	
+    	//recursive case 1: curr pat is strict
+    	if (patArr[patInx].isStrict()) {
+    		if (patArr[patInx].isMatchChar(str.charAt(strInx))) {
+    			isDeadEnd[strInx][patInx] = !match(str, patArr, strInx+1, patInx+1);  			
+    		} else {
+    			isDeadEnd[strInx][patInx] = true;
+    		}//fi
+    		return !isDeadEnd[strInx][patInx];
+    	}//fi
+    	
+    	//recursive case 2: curr pat is not strict
+    	/*
+    	 * algorithm: 
+    	 * 1. try skip current pattern and see if it matches
+    	 * 2. then try match characters until match is found OR end of str has reached 
+    	 */
+    	if (match(str, patArr, strInx, patInx+1)) {
+    		/* case 2-1:  pattern not strict and NOT using the pattern 
+		     * s = [a,b,c,d],  p = [a,b*,b,c,d]
+			 *   stay ^               ^ skip
+    		 */	
+    		isDeadEnd[strInx][patInx] = false;
+    	} else {
+       		/* case 2-2:  pattern not strict and using the pattern  
+    		 * try match as many character as needed
+		     * s = [a,b,b,b,b,b,b,b,b,b,b,c,d],  p = [a,b*,c,d]
+			 *   try match all these ^                  ^ stay
+    		 */
+    		int currStrInx;
+    		isDeadEnd[strInx][patInx] = true;
+    		for (currStrInx = strInx; 
+    				currStrInx < str.length() && 
+    				patArr[patInx].isMatchChar(str.charAt(currStrInx))&&
+    				isDeadEnd[strInx][patInx]
+    				; 
+    				currStrInx++) {
+    			isDeadEnd[strInx][patInx] &= !match(str, patArr, currStrInx+1, patInx+1); 
+    		}//rof    		
+    	}//fi
+    	return !isDeadEnd[strInx][patInx];	
+    }//end method
+}//end class
+
+class Solution10_2 {
+	
+	private Boolean[][] matchCache;
+
+	
+	class Pattern {
+		/*
+		 * 0 - exact char match
+		 * non-zero - various number of matches, including zero
+		 * 
+		 */
+		private int patternType;
+		private char character;
+		
+		public boolean isStrict() {
+			return patternType == 0;
+		}//end method
+				
+		public boolean isMatchChar(char c) {
+			if (character == c || character == '.') {
+				return true;
+			} else {
+				return false;
+			}//fi
+		}//end method
+		
+		public Pattern (int patternType, char character) {
+			this.patternType = patternType;
+			this.character = character;
+		}//end constructor				
+	}//end class
+
+	
+	/**
+	 * This method parses pattern string and build array of pattern objects
+	 * precondition: it is assumed that pattern is valid
+	 * @param p Pattern String
+	 * @return Array of pattern object
+	 */
+	public Pattern[] buildPatternArr(String p) {
+		Pattern[] patternArr = new Pattern[p.length()];   	    	
+    	int currPatternArrInx = 0;
+    	for (int pStrInx = 0; pStrInx < p.length(); pStrInx++) {
+    		if (p.charAt(pStrInx) == '*') {
+    			patternArr[currPatternArrInx-1].patternType=1;
+    		} else {
+    			patternArr[currPatternArrInx] = new Pattern(0,p.charAt(pStrInx));
+    			currPatternArrInx++;
+    		}//fi    	
+    	}//rof
+    	return patternArr;
+	}//end method
+	
+    public boolean isMatch(String s, String p) {
+    	
+    	//special case, pattern length = 0;
+    	if (p.length() == 0) {
+    		return s.length() == 0;	
+    	}//fi  
+    	
+    	//step 1: build pattern array
+		Pattern[] patternArr = buildPatternArr(p);
+    	   	
+		//step 2: match recursively 	
+		matchCache = new Boolean[s.length()+1][patternArr.length+1];
+    	return match(s, patternArr, 0, 0);
+    }//end method
+    
+
+    /**
+     * Recursively matches string and given pattern
+     * @param str string to be matched 
+     * @param patArr Pattern array
+     * @param strInx current index of string array
+     * @param patInx current index of pattern array
+     * @return true if string and pattern match
+     */
+    private boolean match(String str, Pattern[] patArr, int strInx, int patInx) {
+    	if (matchCache[strInx][patInx] != null) {
+    		return matchCache[strInx][patInx];
+    	}//fi
+    	//base case 1: strInx has surpassed end of string, check rest of pat
+    	if (strInx > str.length()-1) {
+			for (int tmpPInx = patInx; tmpPInx < patArr.length && patArr[tmpPInx] != null; tmpPInx++) {
+				if (patArr[tmpPInx].isStrict()) {
+					matchCache[strInx][patInx] = false;
+					return false;
+				}//fi
+			}//rof
+			matchCache[strInx][patInx] = true;
+			return true;
+    	}//fi
+    	
+    	//base case 2: patInx has surpassed end of pat or curr pat is null 
+    	if (patInx > patArr.length-1 || patArr[patInx] == null) {	
+    		matchCache[strInx][patInx] = false;
+			return false;
+    	}//fi
+    	
+    	//recursive case 1: curr pat is strict
+    	if (patArr[patInx].isStrict()) {
+    		if (patArr[patInx].isMatchChar(str.charAt(strInx))) {
+    			matchCache[strInx][patInx] = match(str, patArr, strInx+1, patInx+1);  			
+    		} else {
+    			matchCache[strInx][patInx] = false;
+    		}//fi
+    		return matchCache[strInx][patInx];
+    	}//fi
+    	
+    	//recursive case 2: curr pat is not strict
+    	/*
+    	 * algorithm: 
+    	 * 1. try skip current pattern and see if it matches
+    	 * 2. then try match characters until match is found OR end of str has reached 
+    	 */
+    	if (match(str, patArr, strInx, patInx+1)) {
+    		/* case 2-1:  pattern not strict and NOT using the pattern 
+		     * s = [a,b,c,d],  p = [a,b*,b,c,d]
+			 *   stay ^               ^ skip
+    		 */	
+    		matchCache[strInx][patInx] = true;
+    	} else {
+       		/* case 2-2:  pattern not strict and using the pattern  
+    		 * try match as many character as needed
+		     * s = [a,b,b,b,b,b,b,b,b,b,b,c,d],  p = [a,b*,c,d]
+			 *   try match all these ^                  ^ stay
+    		 */
+    		int currStrInx;
+    		matchCache[strInx][patInx] = false;
+    		for (currStrInx = strInx; 
+    				currStrInx < str.length() && 
+    				patArr[patInx].isMatchChar(str.charAt(currStrInx))&&
+    				!matchCache[strInx][patInx]
+    				; 
+    				currStrInx++) {
+    			matchCache[strInx][patInx] |= match(str, patArr, currStrInx+1, patInx+1); 
+    		}//rof    		
+    	}//fi
+    	return matchCache[strInx][patInx];	
+    }//end method
+}//end class
+
+class Solution10_v1 {
 	
 	public static LinkedList<String> log  = new LinkedList<String>();	
 	private Boolean[][] dp;
@@ -510,4 +798,4 @@ class Solution10 {
 			}//fi   		
     	}//fi
     }//end method 
-}
+}//end class
