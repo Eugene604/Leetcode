@@ -1,15 +1,40 @@
 #include <iostream>
-#include "Prob100.h"
+#include "ProbTestList.h"
+#include "../DataStructs/TreeNode.h"
 using namespace std;
 
 
 
-int main() {
-	cout << " Problem 100.cpp" << endl;
-	return 0;
-}
+class Solution100 {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+    	if (p==NULL && q==NULL){
+    		return true;
+    	}//fi
+    	if (p!=NULL && q==NULL){
+    		return false;
+    	}//fi
+    	if (p==NULL && q!=NULL){
+    		return false;
+    	}//fi
+    	if (p->val != q->val){
+    		return false;
+    	}//fi
+    	if (!isSameTree(p->left, q->left)) {
+    		return false;
+    	}//fi
+    	if (!isSameTree(p->right, q->right)) {
+    		return false;
+    	}//fi
+    	return true;
+    }//end method
+};
 
-void test() {
+
+void prob100Test(){
 	Solution100 sol;
+	cout << " ans: " << sol.isSameTree(NULL, NULL);
 
-}
+}//end method //*/
+
+
