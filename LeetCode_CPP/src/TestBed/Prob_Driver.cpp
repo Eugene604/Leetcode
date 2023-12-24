@@ -3,22 +3,20 @@
 // Author      : Eugene David
 // Version     :
 // Copyright   : 
-// Description : Hello World in C++, Ansi-style
+// Description : LeetCode CPP test driver
 //============================================================================
 
 #include <iostream>
-#include "../Problems/BaseProblem.h"
 #include "../Problems/ProbTestList.h"
 using namespace std;
 
 void runTest() {
 
-	prob100Test();
-
-}
+	runLatestTest();
+}//end method
 
 int main() {
-	cout << "LeetCode CPP problem" << endl; // prints !!!Hello World!!!
+	cout << "problem test driver begin" << endl;
 	runTest();
 	return 0;
 }
