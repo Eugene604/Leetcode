@@ -47,16 +47,20 @@ public class Prob1026 {
 	
 	public static void test() {
 		Solution1026 sol = new Solution1026();
+		TreeNode root;
+
+		root = buildTree(treeArr1);
+		TreeUtils.displayTree(root);
+		System.out.println("max diff: " + sol.maxAncestorDiff(root));
 		
-		TreeNode tree1 = buildTree(treeArr1);
-		TreeUtils.displayTree(tree1);
-		System.out.println("max diff: " + sol.maxAncestorDiff(tree1)); 
-		TreeNode tree2 = buildTree(treeArr2);
-		TreeUtils.displayTree(tree2);
-		System.out.println("max diff: " + sol.maxAncestorDiff(tree2));//*/
-		TreeNode tree3 = buildTree(treeArr3);
-		TreeUtils.displayTree(tree3);
-		System.out.println("max diff: " + sol.maxAncestorDiff(tree3));		
+		root = buildTree(treeArr2);
+		TreeUtils.displayTree(root);
+		System.out.println("max diff: " + sol.maxAncestorDiff(root));
+		
+		root = buildTree(treeArr3);
+		TreeUtils.displayTree(root);
+		System.out.println("max diff: " + sol.maxAncestorDiff(root));
+		//*/	
 	}
 	
 	public static void main(String[] args) {
@@ -66,6 +70,49 @@ public class Prob1026 {
 }
 
 class Solution1026 {
+		
+	int maxPosDiff;
+	int maxNegDiff;
+
+    public int maxAncestorDiff(TreeNode root) {
+    	maxPosDiff = 0;
+    	maxNegDiff = 0;
+    	findDiffs(root, root.val, root.val);
+        return Math.max(maxPosDiff, -maxNegDiff);
+    }//end method
+    
+
+    /**
+     * Recursively traverse the tree and update max positive and negative differences.
+     * 
+     * Preconditions:
+     * - global variables maxPosDiff & maxNegDiff are present and initialized.
+     * 
+     * @param node - TreeNode
+     * @param maxAncestorVal - int, current highest node value along the path
+     * @param minAncestorVal - int, current lowest node value along the path
+     */
+    private void findDiffs(TreeNode node, int maxAncestorVal, int minAncestorVal) {
+    	//base case, node is null
+    	if (node == null) {
+    		return;
+    	}//fi
+    	
+    	if (node.val >= maxAncestorVal) {
+    		maxAncestorVal = node.val;
+    		maxNegDiff = Math.min(maxNegDiff, minAncestorVal - node.val);
+    	} else if (node.val < minAncestorVal) {
+    		minAncestorVal = node.val;
+    		maxPosDiff = Math.max(maxPosDiff, maxAncestorVal - node.val);
+    	} else {
+    		// do nothing, max diffs only change when encountering local maxima or minima
+    	}//fi
+    	findDiffs(node.left, maxAncestorVal, minAncestorVal);
+    	findDiffs(node.right, maxAncestorVal, minAncestorVal);    	
+    }//end method
+}//end class
+
+class Solution1026_v2 {
 	
 	static final int DECLINING = 1;
 	static final int INCLINING = -1;
@@ -233,7 +280,7 @@ class Solution1026 {
     		}
     	}//fi right child
     }//end method
-}
+}//end class
 
 
 
