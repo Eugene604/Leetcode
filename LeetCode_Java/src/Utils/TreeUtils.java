@@ -81,4 +81,38 @@ public class TreeUtils {
 		}//fi
 	}
 
+	/**
+	 * Build tree given Integer array
+	 * @param arr - Integer[]
+	 * @return TreeNode, root of the tree
+	 */
+	public static TreeNode buildTree(Integer[] arr) {
+		int arrL = arr.length;
+		TreeNode[] treeArr = new TreeNode[arrL];
+		for (int i = 0; i < arrL; i++) {
+			if (arr[i] != null) {
+				treeArr[i] = new TreeNode(arr[i]);
+			}
+		}
+		int currNodeInx, lastAccessedNodeInx;
+		
+		for (currNodeInx = 0, lastAccessedNodeInx = 1; lastAccessedNodeInx < arrL; currNodeInx++) {
+			try {
+
+				treeArr[currNodeInx].left = treeArr[lastAccessedNodeInx];
+				//System.out.println(currNodeInx + " L:" + lastAccessedNodeInx);
+				lastAccessedNodeInx++;
+
+				treeArr[currNodeInx].right = treeArr[lastAccessedNodeInx];
+				//System.out.println(currNodeInx + " R:" + lastAccessedNodeInx);
+				lastAccessedNodeInx++;
+			} catch (ArrayIndexOutOfBoundsException e) {
+				continue;
+			} catch (NullPointerException e) {
+				continue;
+			}
+		}//rof	
+		
+		return treeArr[0];
+	}//end method
 }
