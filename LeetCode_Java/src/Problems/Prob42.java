@@ -1,7 +1,9 @@
 package Problems;
 
+import java.util.Arrays;
+
 public class Prob42 {
-	public static int[] arr1 = {1,2,3,4,5};
+	public static int[] arr1 = {1,2,3,4};
 	public static int[] arr2 = {4,4,3,2};
 	public static int[] arr3 = {1,2,9,9,9,9,7,2,1};	
 	public static int[] arr4 = {2,2,2,2};	
@@ -15,56 +17,117 @@ public class Prob42 {
 	}//end main
 	
 	public static void test() {
-		Solution42 solObj;
+		Solution42 solObj = new Solution42();
+		CorrectSolution42 correctSolObj = new CorrectSolution42();
 		int[] arr;
 		
-		/*
-		solObj = new Solution42();		
+		
+	
 		arr = arr1;
 		System.out.println("sol: " + solObj.trap(arr));
+		System.out.println("correct correct sol: " + correctSolObj.trap(arr));	
 	
 	
-		solObj = new Solution42();
+	
 		arr = arr2;
 		System.out.println("sol: " + solObj.trap(arr));
+		System.out.println("correct sol: " + correctSolObj.trap(arr));	
 		
-		solObj = new Solution42();		
+		
 		arr = arr3;
 		System.out.println("sol: " + solObj.trap(arr));
+		System.out.println("correct sol: " + correctSolObj.trap(arr));	
 			
 		
-		solObj = new Solution42();		
+	
 		arr = arr4;
 		System.out.println("sol: " + solObj.trap(arr));
+		System.out.println("correct sol: " + correctSolObj.trap(arr));	
 		
-		
-		solObj = new Solution42();		
-		arr = arr5;
-		System.out.println("sol: " + solObj.trap(arr));
-	
-		
-		solObj = new Solution42();		
-		arr = arr6;
-		System.out.println("sol: " + solObj.trap(arr));	
-		
-	
-		solObj = new Solution42();		
-		arr = arr7;
-		System.out.println("sol: " + solObj.trap(arr));	
-		
-		solObj = new Solution42();		
-		arr = arr8;
-		System.out.println("sol: " + solObj.trap(arr));	
 		//*/
 		
-		solObj = new Solution42();		
-		arr = arr9;
+	
+		arr = arr5;
+		System.out.println(Arrays.toString(arr));
+		System.out.println("sol: " + solObj.trap(arr));
+		System.out.println("correct sol: " + correctSolObj.trap(arr));	
+	
+		
+		
+		arr = arr6;
 		System.out.println("sol: " + solObj.trap(arr));	
+		System.out.println("correct sol: " + correctSolObj.trap(arr));	
+		
+	
+		arr = arr7;
+		System.out.println("sol: " + solObj.trap(arr));	
+		System.out.println("correct sol: " + correctSolObj.trap(arr));	
+	
+		arr = arr8;
+		System.out.println("sol: " + solObj.trap(arr));	
+		System.out.println("correct sol: " + correctSolObj.trap(arr));	
+		//*/
+		
+			
+		arr = arr9;
+		System.out.println("sol: " + solObj.trap(arr));
+		System.out.println("correct sol: " + correctSolObj.trap(arr));	
 	}//end method
 
 }//end class
 
 class Solution42 {
+	
+
+    public int trap(int[] height) {
+    	//special case: height map length < 3
+    	if (height.length < 3) {
+    		return 0;
+    	}//fi
+    	int singleVol;
+    	int totalVol = 0;
+    	int tmpLocalVol = 0;    	
+    	int summitHeight = height[0];
+    	//step 1, scan from left to right
+    	for (int i=1; i<height.length; i++) {
+    		singleVol = summitHeight - height[i];
+    		if (singleVol <= 0) {
+    			if (tmpLocalVol > 0) {
+    				totalVol += tmpLocalVol;
+    			}//fi
+    			summitHeight = height[i];
+    			tmpLocalVol = 0;
+    		} else {
+    			tmpLocalVol += singleVol;
+    		}//fi
+    	}//rof
+    	
+    	if (tmpLocalVol == 0) {
+    		return totalVol;
+    	}//fi
+    	
+    	//step 2, scan from right to left if necessary
+    	tmpLocalVol = 0;  
+    	summitHeight = height[height.length-1];
+    	for (int i=height.length-2; i>=0; i--) {
+    		singleVol = summitHeight - height[i];
+    		if (singleVol < 0) { //notice that singleVol == 0 case has been taken care of during left to right scan
+    			if (tmpLocalVol > 0) {
+    				totalVol += tmpLocalVol;   				
+    			}//fi
+    			summitHeight = height[i];
+    			tmpLocalVol = 0;    			
+    		} else {
+    			tmpLocalVol += singleVol;
+    		}//fi
+    	}//rof
+    	
+    	return totalVol;
+    }//end method
+ 
+}//end class
+
+class Solution42_v2 {
 	
 	enum Trend {
 		UP_SLOPE,DOWN_SLOPE, 
@@ -193,3 +256,33 @@ class Solution42 {
 }//end class
 
 
+class CorrectSolution42 {
+    public int trap(int[] height) {
+        int n = height.length;
+        if (n == 0) return 0;
+        
+        int[] left = new int[n];
+        int[] right = new int[n];
+        int storedWater = 0;
+        
+        // Fill left array
+        left[0] = height[0];
+        for (int i = 1; i < n; i++) {
+            left[i] = Math.max(left[i - 1], height[i]);
+        }
+        
+        // Fill right array
+        right[n - 1] = height[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            right[i] = Math.max(right[i + 1], height[i]);
+        }
+        
+        // Calculate trapped water
+        for (int i = 0; i < n; i++) {
+            int minHeight = Math.min(left[i], right[i]);
+            storedWater += minHeight - height[i];
+        }
+        
+        return storedWater;
+    }
+}

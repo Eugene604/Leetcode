@@ -3,6 +3,10 @@ package Problems;
 import java.util.*;
 import java.util.Map.Entry;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import Utils.MatrixUtils;
+
 
 public class Prob300{
 	static int[] nums0 = {10,9,2,5,3,7,101,18}; //4
@@ -19,30 +23,33 @@ public class Prob300{
 	private static void test() {
 		
 
-		int[] testArr;
+	
 		Solution300 solObj = new Solution300();
-		
-		/*
-		
-			
-		
-		testArr = nums0;
-		System.out.println("Arr: " + Arrays.toString(testArr));
-		System.out.println("Ans: " + solObj.lengthOfLIS(testArr));
-		
-				testArr = nums6;
-		System.out.println("Arr: " + Arrays.toString(testArr));
-		System.out.println("Ans: " + solObj.lengthOfLIS(testArr));
+		Solution300_v2 correct_solObj = new Solution300_v2();		
+		int[] nums;
 
-		testArr = nums7;
-		System.out.println("Arr: " + Arrays.toString(testArr));
-		System.out.println("Ans: " + solObj.lengthOfLIS(testArr));
-		//*/
+		try {
+            // Create an ObjectMapper
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            
+            nums = objectMapper.readValue("[1,20,40,80,2,3,4,5,6,7,8,9,10]", int[].class);
+            System.out.println("Arr: " + Arrays.toString(nums));
+    		System.out.println("ans: " + solObj.lengthOfLIS(nums));
+    		System.out.println("ans: " + correct_solObj.lengthOfLIS(nums));
+    		
+    		/*
+            nums = objectMapper.readValue("[0,1,0,3,2,3]", int[].class);
+            System.out.println("Arr: " + Arrays.toString(nums));
+    		System.out.println("ans: " + solObj.lengthOfLIS(nums));    		 
+    		//*/
+       
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 		
-		
-		testArr = nums2;
-		System.out.println("Arr: " + Arrays.toString(testArr));
-		System.out.println("Ans: " + solObj.lengthOfLIS(testArr));
+
 		
 	}//end test
 	
@@ -53,6 +60,33 @@ public class Prob300{
 
 
 class Solution300{
+
+	
+    public int lengthOfLIS(int[] nums) {
+    	//array index = index of number array, array value = longest sequence length possible if to include # at this position
+		int[] cntArr = new int[nums.length];     	
+    	cntArr[0]=1;
+    	int maxCnt = 1;
+    	int currCnt;
+    	for (int numInx=1; numInx<nums.length; numInx++) {
+    		currCnt = 1;
+    		for (int i=numInx-1; i>=currCnt-1; i--) {
+        		if (nums[i] < nums[numInx]) {
+        			currCnt = Math.max(currCnt,  cntArr[i]+1);
+        		}//fi
+        	}//rof */
+    		cntArr[numInx] = currCnt;
+    		maxCnt = Math.max(maxCnt,  currCnt);
+    	}//rof
+    	//System.out.println("cntArr" + Arrays.toString(cntArr));
+    	return maxCnt;
+    }//end method
+       
+}//end class
+
+
+
+class Solution300_v2{
 	
     public int lengthOfLIS(int[] nums) {
     	//Map <sequence count, current last (greatest) value of the sequence>
@@ -129,35 +163,6 @@ class Solution300{
     }//end method
     
 }//end class
-
-class Solution300_v2{
-
-	
-    public int lengthOfLIS(int[] nums) {
-    	//array index = index of number array, array value = longest sequence length possible if to include # at this position
-		int[] cntArr = new int[nums.length];     	
-    	cntArr[0]=1;
-    	int maxCnt;
-    	for (int numInx=1; numInx<nums.length; numInx++) {
-    		maxCnt = 1;
-    		for (int i=numInx-1; i>=maxCnt-1; i--) {
-        		if (nums[i] < nums[numInx]) {
-        			maxCnt = Math.max(maxCnt,  cntArr[i]+1);
-        		}//fi
-        	}//rof */
-    		cntArr[numInx] = maxCnt;    		
-    	}//rof
-    
-    	//System.out.println("cnt: " + Arrays.toString(cntArr));
-    	maxCnt = 1;
-    	for (int i=nums.length-1; i>0 && i>=maxCnt; i--) {
-    		maxCnt = Math.max(maxCnt,  cntArr[i]);
-    	}//rof */
-    	return maxCnt;
-    }//end method
-       
-}//end class
-
 
 class Solution300_v3{
 	static int[] cntArr = new int[2501]; 

@@ -207,7 +207,7 @@ class Solution1048 {
     	}//end while
     	
     	return (inxB-inxA)==1 || (inxA==strB.length()-1);
-    }//fi
+    }//end method
 }// end class
 
 
